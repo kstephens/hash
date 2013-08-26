@@ -143,7 +143,7 @@ HASH_EXTERN HASH(TableEntry) ** HASH(TableSearch) ( HASH(Table) *ht, HASH_KEY _k
 #if HASH_KEEP_HASH
        _hash == (*ht->_cache)->_hash && 
 #endif
-       (HASH_KEY_EQUAL(_key, (*ht->_cache)->_key)) ) {
+       HASH_KEY_EQUAL(_key, (*ht->_cache)->_key) ) {
     return ht->_cache;
   }
 #endif
@@ -157,7 +157,7 @@ HASH_EXTERN HASH(TableEntry) ** HASH(TableSearch) ( HASH(Table) *ht, HASH_KEY _k
 #if HASH_KEEP_HASH
 	_hash == (*e)->_hash && 
 #endif
-	(HASH_KEY_EQUAL(_key, (*e)->_key)) ) {
+	HASH_KEY_EQUAL(_key, (*e)->_key) ) {
 #if HASH_SEARCH_MOVE_TO_FRONT != 0
       if ( HASH_SEARCH_MOVE_TO_FRONT ) {
 	HASH(TableEntry) *ee = *e;
